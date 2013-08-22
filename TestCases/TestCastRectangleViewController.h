@@ -1,6 +1,6 @@
-// TestCaseViewController.h
+// TestCastRectangleViewController.h
 //
-// Copyright (c) 2013 Tang Tianyong
+// Copyright (c) 2013年 Tang Tianyong
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,21 +23,8 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-#import "SVGKFastImageView.h"
+#import "TestCaseViewController.h"
 
-#include "libcola/cola.h"
-
-using namespace vpsc;
-using namespace cola;
-
-SVGKFastImageView *toSVG(Rectangles const &rs, std::vector<Edge> const &es, const bool curvedEdges);
-
-@interface TestCaseViewController : UIViewController
-
-@property (nonatomic, weak) UIView *topView;
-@property (nonatomic, weak) UIView *bottomView;
-
-- (void)testCase;
+@interface TestCastRectangleViewController : TestCaseViewController
 
 @end

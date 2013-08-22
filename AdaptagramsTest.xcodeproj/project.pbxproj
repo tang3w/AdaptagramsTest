@@ -22,6 +22,7 @@
 		83C91AF417C53AAE006AF359 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C91AF317C53AAE006AF359 /* CoreImage.framework */; };
 		83C91AF617C53ABA006AF359 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C91AF517C53ABA006AF359 /* QuartzCore.framework */; };
 		83C91AF817C53AF4006AF359 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C91AF717C53AF4006AF359 /* libxml2.dylib */; };
+		83C91AFF17C65314006AF359 /* TestCastRectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C91AFE17C65314006AF359 /* TestCastRectangleViewController.m */; };
 		A3122DBD17C59C0B004990C8 /* libavoid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DB917C59C0B004990C8 /* libavoid.a */; };
 		A3122DBE17C59C0B004990C8 /* libcola.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DBA17C59C0B004990C8 /* libcola.a */; };
 		A3122DBF17C59C0B004990C8 /* libtopology.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DBB17C59C0B004990C8 /* libtopology.a */; };
@@ -48,7 +49,6 @@
 		83C919C117C3C521006AF359 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		83C919C317C3C521006AF359 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		83C919C517C3C521006AF359 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		83C91A7617C4E955006AF359 /* graphlayouttest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphlayouttest.h; sourceTree = "<group>"; };
 		83C91A7717C4EB2C006AF359 /* colafd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = colafd.cpp; sourceTree = "<group>"; };
 		83C91A7C17C4EF0D006AF359 /* librender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = librender.cpp; sourceTree = "<group>"; };
 		83C91A7D17C4EF0D006AF359 /* librender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = librender.h; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		83C91AF317C53AAE006AF359 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		83C91AF517C53ABA006AF359 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		83C91AF717C53AF4006AF359 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		83C91AFD17C65314006AF359 /* TestCastRectangleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCastRectangleViewController.h; path = TestCases/TestCastRectangleViewController.h; sourceTree = "<group>"; };
+		83C91AFE17C65314006AF359 /* TestCastRectangleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCastRectangleViewController.m; path = TestCases/TestCastRectangleViewController.m; sourceTree = "<group>"; };
 		A3122D7417C59C0B004990C8 /* actioninfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = actioninfo.h; sourceTree = "<group>"; };
 		A3122D7517C59C0B004990C8 /* assertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assertions.h; sourceTree = "<group>"; };
 		A3122D7617C59C0B004990C8 /* connectionpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionpin.h; sourceTree = "<group>"; };
@@ -271,7 +273,6 @@
 			children = (
 				83C91A7C17C4EF0D006AF359 /* librender.cpp */,
 				83C91A7D17C4EF0D006AF359 /* librender.h */,
-				83C91A7617C4E955006AF359 /* graphlayouttest.h */,
 				83C91A7717C4EB2C006AF359 /* colafd.cpp */,
 				83C919B517C3C521006AF359 /* AdaptagramsTest */,
 				A3122F8317C5C7A6004990C8 /* TestCases */,
@@ -618,6 +619,8 @@
 				A3122F8117C5C799004990C8 /* TestCaseConstrainedFDLayout.m */,
 				A3122FD017C5EC90004990C8 /* TestCaseCCSViewController.h */,
 				A3122FD117C5EC90004990C8 /* TestCaseCCSViewController.m */,
+				83C91AFD17C65314006AF359 /* TestCastRectangleViewController.h */,
+				83C91AFE17C65314006AF359 /* TestCastRectangleViewController.m */,
 			);
 			name = TestCases;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				A3122FCF17C5E48B004990C8 /* TestCaseViewController.m in Sources */,
 				A3122FD217C5EC90004990C8 /* TestCaseCCSViewController.m in Sources */,
 				A3122FD717C61444004990C8 /* MainViewController.m in Sources */,
+				83C91AFF17C65314006AF359 /* TestCastRectangleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

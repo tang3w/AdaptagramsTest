@@ -26,6 +26,7 @@
 #import "MainViewController.h"
 #import "TestCaseConstrainedFDLayout.h"
 #import "TestCaseCCSViewController.h"
+#import "TestCastRectangleViewController.h"
 
 @interface MainViewController ()
 
@@ -44,7 +45,8 @@
         
         _testCaseClass = @[
            [TestCaseConstrainedFDLayout class],
-           [TestCaseCCSViewController class]
+           [TestCaseCCSViewController class],
+           [TestCastRectangleViewController class]
         ];
     }
     return self;

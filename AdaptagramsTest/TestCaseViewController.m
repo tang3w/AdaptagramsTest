@@ -25,9 +25,22 @@
 
 #import "TestCaseViewController.h"
 
-@interface TestCaseViewController ()
+#include "librender.h"
 
-@end
+using namespace colaext;
+
+SVGKFastImageView *toSVG(Rectangles const &rs, std::vector<Edge> const &es, const bool curvedEdges) {
+    colaext::Render render(rs, es, curvedEdges);
+    std::string svgCText = render.svgText();
+    NSString *svgText = [NSString stringWithCString:svgCText.c_str() encoding:[NSString defaultCStringEncoding]];
+    
+    NSData *svgData = [svgText dataUsingEncoding:NSUTF8StringEncoding];
+    SVGKSource *svgSource = [SVGKSource sourceFromData:svgData];
+    SVGKImage *svgImage = [SVGKImage imageWithSource:svgSource];
+    SVGKFastImageView *svgGraph = [[SVGKFastImageView alloc] initWithSVGKImage:svgImage];
+    
+    return svgGraph;
+}
 
 @implementation TestCaseViewController
 
@@ -45,7 +58,35 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    CGRect frame = self.view.bounds;
+    
+    frame.size.height -= 44.0f;
+    
+    self.view.frame = frame;
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    frame = self.view.bounds;
+    
+    frame.size.height /= 2.0f;
+    
+    UIView *topview = [[UIView alloc] initWithFrame:frame];
+    
+    topview.backgroundColor = [UIColor lightGrayColor];
+    
+    [self.view addSubview:topview];
+    
+    self.topView = topview;
+    
+    frame.origin.y = frame.size.height;
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:frame];
+    
+    [self.view addSubview:bottomView];
+    
+    self.bottomView = bottomView;
+    
+    bottomView.backgroundColor = [UIColor grayColor];
     
     [self testCase];
 }

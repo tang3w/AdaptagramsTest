@@ -34,7 +34,6 @@
 #include <iomanip>
 #include "libcola/cola.h"
 #include "libcola/output_svg.h"
-#include "graphlayouttest.h"
 
 #include "librender.h"
 
@@ -42,6 +41,10 @@
 
 using namespace cola;
 using namespace std;
+
+inline double getRand(double range) {
+	return range*rand()/RAND_MAX;
+}
 
 @implementation TestCaseConstrainedFDLayout
 

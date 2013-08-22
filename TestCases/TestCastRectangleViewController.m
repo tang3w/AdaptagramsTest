@@ -1,6 +1,6 @@
-// TestCaseViewController.h
+// TestCastRectangleViewController.m
 //
-// Copyright (c) 2013 Tang Tianyong
+// Copyright (c) 2013年 Tang Tianyong
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,21 +23,35 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-#import "SVGKFastImageView.h"
+#import "TestCastRectangleViewController.h"
 
 #include "libcola/cola.h"
 
 using namespace vpsc;
 using namespace cola;
 
-SVGKFastImageView *toSVG(Rectangles const &rs, std::vector<Edge> const &es, const bool curvedEdges);
+@implementation TestCastRectangleViewController
 
-@interface TestCaseViewController : UIViewController
-
-@property (nonatomic, weak) UIView *topView;
-@property (nonatomic, weak) UIView *bottomView;
-
-- (void)testCase;
+- (void)testCase {
+    Rectangles rs;
+    rs.push_back(new Rectangle(10, 60, 10, 60));
+    rs.push_back(new Rectangle(50, 100, 30, 80));
+    rs.push_back(new Rectangle(80, 130, 60, 110));
+    rs.push_back(new Rectangle(20, 70, 50, 100));
+    
+    std::vector<Edge> es;
+    
+    [self.topView addSubview:toSVG(rs, es, true)];
+    
+    // Remove overlaps
+    removeoverlaps(rs);
+    
+    SVGKFastImageView *view2 = toSVG(rs, es, true);
+    
+    CGRect frame = view2.frame;
+    frame.origin.y = 300.0f;
+    
+    [self.bottomView addSubview:view2];
+}
 
 @end

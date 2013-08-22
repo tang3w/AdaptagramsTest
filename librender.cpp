@@ -97,7 +97,7 @@ std::string Render::svgText() {
         rect << " width=\"" << rs[i]->width() - 3 << "\"";
         rect << " height=\"" << rs[i]->height() - 3 << "\"";
         
-        rect << " style=\"fill:blue; stroke:pink; stroke-width:3;\"";
+        rect << " style=\"fill:red; stroke:yellow; stroke-width:3;\"";
         
         rect << "/>";
         
