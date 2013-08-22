@@ -25,6 +25,7 @@
 
 #import "MainViewController.h"
 #import "TestCaseConstrainedFDLayout.h"
+#import "TestCaseCCSViewController.h"
 
 @interface MainViewController ()
 
@@ -42,7 +43,8 @@
         self.title = @"Test Cases List";
         
         _testCaseClass = @[
-           [TestCaseConstrainedFDLayout class]
+           [TestCaseConstrainedFDLayout class],
+           [TestCaseCCSViewController class]
         ];
     }
     return self;

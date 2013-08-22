@@ -1,4 +1,4 @@
-// TestCaseConstrainedFDLayout.m
+// TestCaseCCSViewController.m
 //
 // Copyright (c) 2013 Tang Tianyong
 //
@@ -23,52 +23,69 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TestCaseConstrainedFDLayout.h"
+#import "TestCaseCCSViewController.h"
 
 #include <iostream>
 
-#include <map>
 #include <vector>
 #include <algorithm>
 #include <float.h>
-#include <iomanip>
-#include "libcola/cola.h"
-#include "libcola/output_svg.h"
-#include "graphlayouttest.h"
+#include <libcola/cola.h>
+#include <libcola/output_svg.h>
 
 #include "librender.h"
 
 #import "SVGKFastImageView.h"
 
-using namespace cola;
-using namespace std;
+inline double getRand(double range) {
+	return range*rand()/RAND_MAX;
+}
 
-@implementation TestCaseConstrainedFDLayout
+using namespace std;
+using namespace cola;
+
+@interface TestCaseCCSViewController ()
+
+@end
+
+@implementation TestCaseCCSViewController
 
 - (void)testCase {
     
-    vector<vpsc::Rectangle*> rs;
-    vector<Edge> es;
-    RectangularCluster rc, rd;
-    
-    const unsigned V = 6;
+    const unsigned V = 4;
 	typedef pair < unsigned, unsigned >Edge;
-	Edge edge_array[] = { Edge(0, 1), Edge(1, 2), Edge(1, 3), Edge(1, 4), Edge(2, 4), Edge(5, 4) };
-	const std::size_t E = sizeof(edge_array) / sizeof(Edge);
-	es.resize(E);
-	copy(edge_array,edge_array+E,es.begin());
-    
+	Edge edge_array[] = { Edge(0, 1), Edge(1, 2), Edge(2, 3), Edge(1, 3) };
+	unsigned E = sizeof(edge_array) / sizeof(Edge);
+	vector<Edge> es(edge_array,edge_array+E);
 	double width=100;
 	double height=100;
-    
+	vector<vpsc::Rectangle*> rs;
 	for(unsigned i=0;i<V;i++) {
 		double x=getRand(width), y=getRand(height);
-		rs.push_back(new vpsc::Rectangle(x,x+20,y,y+15));
+		rs.push_back(new vpsc::Rectangle(x,x+5,y,y+5));
 	}
+	CompoundConstraints ccs;
+	AlignmentConstraint ac(vpsc::XDIM);
+	ccs.push_back(&ac);
+	ac.addShape(0,0);
+	ac.addShape(3,0);
+	// apply steepest descent layout
+	ConstrainedFDLayout alg2(rs,es,width/2, false);
+	alg2.setConstraints(ccs);
+	alg2.run();
     
-    ConstrainedFDLayout alg(rs, es, 60, true);
-    
+	// reset rectangles to random positions
+	for(unsigned i=0;i<V;i++) {
+		double x=getRand(width), y=getRand(height);
+		rs[i]->moveCentre(x,y);
+	}
+	// apply scaled majorization layout
+	ConstrainedMajorizationLayout alg(rs,es,NULL,width/2);
+	alg.setConstraints(&ccs);
+	alg.setScaling(true);
 	alg.run();
+    
+	cout<<rs[0]->getCentreX()<<","<<rs[3]->getCentreX()<<endl;
     
     colaext::Render render(rs, es, true);
     
@@ -83,6 +100,7 @@ using namespace std;
     SVGKFastImageView *svgGraph = [[SVGKFastImageView alloc] initWithSVGKImage:svgImage];
     
     [self.view addSubview:svgGraph];
+    
 }
 
 @end

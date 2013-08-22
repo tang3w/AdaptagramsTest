@@ -28,9 +28,10 @@
 		A3122DC017C59C0B004990C8 /* libvpsc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DBC17C59C0B004990C8 /* libvpsc.a */; };
 		A3122F7F17C5C3FD004990C8 /* libSVGKit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122F1017C5C3FD004990C8 /* libSVGKit-iOS.a */; };
 		A3122F8217C5C799004990C8 /* TestCaseConstrainedFDLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A3122F8117C5C799004990C8 /* TestCaseConstrainedFDLayout.m */; };
-		A3122FC717C5CEAA004990C8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3122FC517C5CEAA004990C8 /* MainViewController.m */; };
 		A3122FC817C5CEAA004990C8 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3122FC617C5CEAA004990C8 /* MainViewController.xib */; };
 		A3122FCF17C5E48B004990C8 /* TestCaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3122FCE17C5E48B004990C8 /* TestCaseViewController.m */; };
+		A3122FD217C5EC90004990C8 /* TestCaseCCSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3122FD117C5EC90004990C8 /* TestCaseCCSViewController.m */; };
+		A3122FD717C61444004990C8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3122FD617C61444004990C8 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,10 +235,12 @@
 		A3122F8017C5C799004990C8 /* TestCaseConstrainedFDLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCaseConstrainedFDLayout.h; path = TestCases/TestCaseConstrainedFDLayout.h; sourceTree = "<group>"; };
 		A3122F8117C5C799004990C8 /* TestCaseConstrainedFDLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCaseConstrainedFDLayout.m; path = TestCases/TestCaseConstrainedFDLayout.m; sourceTree = "<group>"; };
 		A3122FC417C5CEAA004990C8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		A3122FC517C5CEAA004990C8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A3122FC617C5CEAA004990C8 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		A3122FCD17C5E48B004990C8 /* TestCaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseViewController.h; sourceTree = "<group>"; };
 		A3122FCE17C5E48B004990C8 /* TestCaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseViewController.m; sourceTree = "<group>"; };
+		A3122FD017C5EC90004990C8 /* TestCaseCCSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCaseCCSViewController.h; path = TestCases/TestCaseCCSViewController.h; sourceTree = "<group>"; };
+		A3122FD117C5EC90004990C8 /* TestCaseCCSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCaseCCSViewController.m; path = TestCases/TestCaseCCSViewController.m; sourceTree = "<group>"; };
+		A3122FD617C61444004990C8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +309,7 @@
 				83C919BE17C3C521006AF359 /* AppDelegate.h */,
 				83C919BF17C3C521006AF359 /* AppDelegate.m */,
 				A3122FC417C5CEAA004990C8 /* MainViewController.h */,
-				A3122FC517C5CEAA004990C8 /* MainViewController.m */,
+				A3122FD617C61444004990C8 /* MainViewController.m */,
 				A3122FC617C5CEAA004990C8 /* MainViewController.xib */,
 				A3122FCD17C5E48B004990C8 /* TestCaseViewController.h */,
 				A3122FCE17C5E48B004990C8 /* TestCaseViewController.m */,
@@ -613,6 +616,8 @@
 			children = (
 				A3122F8017C5C799004990C8 /* TestCaseConstrainedFDLayout.h */,
 				A3122F8117C5C799004990C8 /* TestCaseConstrainedFDLayout.m */,
+				A3122FD017C5EC90004990C8 /* TestCaseCCSViewController.h */,
+				A3122FD117C5EC90004990C8 /* TestCaseCCSViewController.m */,
 			);
 			name = TestCases;
 			sourceTree = "<group>";
@@ -688,8 +693,9 @@
 				83C91A7817C4EB2C006AF359 /* colafd.cpp in Sources */,
 				83C91A7E17C4EF0D006AF359 /* librender.cpp in Sources */,
 				A3122F8217C5C799004990C8 /* TestCaseConstrainedFDLayout.m in Sources */,
-				A3122FC717C5CEAA004990C8 /* MainViewController.m in Sources */,
 				A3122FCF17C5E48B004990C8 /* TestCaseViewController.m in Sources */,
+				A3122FD217C5EC90004990C8 /* TestCaseCCSViewController.m in Sources */,
+				A3122FD717C61444004990C8 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
