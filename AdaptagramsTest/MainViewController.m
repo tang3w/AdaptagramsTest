@@ -30,6 +30,8 @@
 #import "TestCaseAlignmentViewController.h"
 #import "SeparationConstraint_0.h"
 #import "OrthogonalEdgeConstraint_0.h"
+#import "MultiSeparationConstraint_0.h"
+#import "DistributionConstraint_0.h"
 
 @interface MainViewController ()
 
@@ -52,7 +54,9 @@
            [TestCastRectangleViewController class],
            [TestCaseAlignmentViewController class],
            [SeparationConstraint_0 class],
-           [OrthogonalEdgeConstraint_0 class]
+           [OrthogonalEdgeConstraint_0 class],
+           [MultiSeparationConstraint_0 class],
+           [DistributionConstraint_0 class]
         ];
     }
     return self;

@@ -25,6 +25,8 @@
 		83C91AFF17C65314006AF359 /* TestCastRectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C91AFE17C65314006AF359 /* TestCastRectangleViewController.m */; };
 		83C91B0517C8499B006AF359 /* SeparationConstraint_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C91B0417C8499B006AF359 /* SeparationConstraint_0.m */; };
 		83C91B0817C87C9B006AF359 /* OrthogonalEdgeConstraint_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C91B0717C87C9B006AF359 /* OrthogonalEdgeConstraint_0.m */; };
+		83C91B0B17C88D10006AF359 /* MultiSeparationConstraint_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C91B0A17C88D10006AF359 /* MultiSeparationConstraint_0.m */; };
+		83C91B0E17C893BC006AF359 /* DistributionConstraint_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C91B0D17C893BC006AF359 /* DistributionConstraint_0.m */; };
 		A3122DBD17C59C0B004990C8 /* libavoid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DB917C59C0B004990C8 /* libavoid.a */; };
 		A3122DBE17C59C0B004990C8 /* libcola.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DBA17C59C0B004990C8 /* libcola.a */; };
 		A3122DBF17C59C0B004990C8 /* libtopology.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3122DBB17C59C0B004990C8 /* libtopology.a */; };
@@ -65,6 +67,10 @@
 		83C91B0417C8499B006AF359 /* SeparationConstraint_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeparationConstraint_0.m; path = TestCases/SeparationConstraint_0.m; sourceTree = "<group>"; };
 		83C91B0617C87C9B006AF359 /* OrthogonalEdgeConstraint_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrthogonalEdgeConstraint_0.h; path = TestCases/OrthogonalEdgeConstraint_0.h; sourceTree = "<group>"; };
 		83C91B0717C87C9B006AF359 /* OrthogonalEdgeConstraint_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrthogonalEdgeConstraint_0.m; path = TestCases/OrthogonalEdgeConstraint_0.m; sourceTree = "<group>"; };
+		83C91B0917C88D10006AF359 /* MultiSeparationConstraint_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiSeparationConstraint_0.h; path = TestCases/MultiSeparationConstraint_0.h; sourceTree = "<group>"; };
+		83C91B0A17C88D10006AF359 /* MultiSeparationConstraint_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiSeparationConstraint_0.m; path = TestCases/MultiSeparationConstraint_0.m; sourceTree = "<group>"; };
+		83C91B0C17C893BC006AF359 /* DistributionConstraint_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistributionConstraint_0.h; path = TestCases/DistributionConstraint_0.h; sourceTree = "<group>"; };
+		83C91B0D17C893BC006AF359 /* DistributionConstraint_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionConstraint_0.m; path = TestCases/DistributionConstraint_0.m; sourceTree = "<group>"; };
 		A3122D7417C59C0B004990C8 /* actioninfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = actioninfo.h; sourceTree = "<group>"; };
 		A3122D7517C59C0B004990C8 /* assertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assertions.h; sourceTree = "<group>"; };
 		A3122D7617C59C0B004990C8 /* connectionpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectionpin.h; sourceTree = "<group>"; };
@@ -636,6 +642,10 @@
 				83C91B0417C8499B006AF359 /* SeparationConstraint_0.m */,
 				83C91B0617C87C9B006AF359 /* OrthogonalEdgeConstraint_0.h */,
 				83C91B0717C87C9B006AF359 /* OrthogonalEdgeConstraint_0.m */,
+				83C91B0917C88D10006AF359 /* MultiSeparationConstraint_0.h */,
+				83C91B0A17C88D10006AF359 /* MultiSeparationConstraint_0.m */,
+				83C91B0C17C893BC006AF359 /* DistributionConstraint_0.h */,
+				83C91B0D17C893BC006AF359 /* DistributionConstraint_0.m */,
 			);
 			name = TestCases;
 			sourceTree = "<group>";
@@ -718,6 +728,8 @@
 				A3122FDA17C73ECA004990C8 /* TestCaseAlignmentViewController.m in Sources */,
 				83C91B0517C8499B006AF359 /* SeparationConstraint_0.m in Sources */,
 				83C91B0817C87C9B006AF359 /* OrthogonalEdgeConstraint_0.m in Sources */,
+				83C91B0B17C88D10006AF359 /* MultiSeparationConstraint_0.m in Sources */,
+				83C91B0E17C893BC006AF359 /* DistributionConstraint_0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
