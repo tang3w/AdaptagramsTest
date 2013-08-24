@@ -1,6 +1,6 @@
-// TestCaseAlignmentViewController.m
+// OrthogonalEdgeConstraint_0.m
 //
-// Copyright (c) 2013 Tang Tianyong
+// Copyright (c) 2013年 Tang Tianyong
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,11 +23,9 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TestCaseAlignmentViewController.h"
+#import "OrthogonalEdgeConstraint_0.h"
 
-using namespace cola;
-
-@implementation TestCaseAlignmentViewController
+@implementation OrthogonalEdgeConstraint_0
 
 - (void)testCase {
     Rectangles rs;
@@ -40,30 +38,30 @@ using namespace cola;
     
     [self addDisplayView:toSVG(rs, es, true)];
     
-    // Alignmenet
-    ConstrainedFDLayout alg(rs, es, 60, true);
+    es.push_back(Edge(0, 1));
+    es.push_back(Edge(1, 2));
+    es.push_back(Edge(0, 3));
+    es.push_back(Edge(2, 3));
+    es.push_back(Edge(0, 2));
+    es.push_back(Edge(1, 3));
+    
+    ConstrainedFDLayout alg(rs, es, 150, true);
     
     CompoundConstraints ccs;
     
-    AlignmentConstraint *conY = new AlignmentConstraint(vpsc::YDIM, 80);
-    conY->addShape(0, 100);
-    conY->addShape(1, 100);
-    conY->addShape(2, 100);
-    conY->addShape(3, 100);
+    OrthogonalEdgeConstraint *conX0 = new OrthogonalEdgeConstraint(vpsc::XDIM, 0, 1);
+    OrthogonalEdgeConstraint *conY0 = new OrthogonalEdgeConstraint(vpsc::YDIM, 1, 3);
+    OrthogonalEdgeConstraint *conY1 = new OrthogonalEdgeConstraint(vpsc::YDIM, 0, 2);
     
-    AlignmentConstraint *conX = new AlignmentConstraint(vpsc::XDIM, 0);
-    conX->addShape(0, 0);
-    conX->addShape(1, 120);
-    conX->addShape(2, 180);
-    conX->addShape(3, 250);
-    
-    ccs.push_back(conY);
-    ccs.push_back(conX);
+    ccs.push_back(conX0);
+    ccs.push_back(conY0);
+    ccs.push_back(conY1);
     
     alg.setConstraints(ccs);
+    
     alg.run();
     
-    [self addDisplayView:toSVG(rs, es, true)];
+    [self addDisplayView:toSVG(rs, es, false)];
 }
 
 @end

@@ -28,6 +28,8 @@
 #import "TestCaseCCSViewController.h"
 #import "TestCastRectangleViewController.h"
 #import "TestCaseAlignmentViewController.h"
+#import "SeparationConstraint_0.h"
+#import "OrthogonalEdgeConstraint_0.h"
 
 @interface MainViewController ()
 
@@ -48,7 +50,9 @@
            [TestCaseConstrainedFDLayout class],
            [TestCaseCCSViewController class],
            [TestCastRectangleViewController class],
-           [TestCaseAlignmentViewController class]
+           [TestCaseAlignmentViewController class],
+           [SeparationConstraint_0 class],
+           [OrthogonalEdgeConstraint_0 class]
         ];
     }
     return self;

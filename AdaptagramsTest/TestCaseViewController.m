@@ -42,13 +42,18 @@ SVGKFastImageView *toSVG(Rectangles const &rs, std::vector<Edge> const &es, cons
     return svgGraph;
 }
 
-@implementation TestCaseViewController
+@implementation TestCaseViewController {
+    __weak UITableView *_tableView;
+    NSMutableArray *_displayViews;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        _displayViews = [NSMutableArray array];
     }
     return self;
 }
@@ -64,35 +69,53 @@ SVGKFastImageView *toSVG(Rectangles const &rs, std::vector<Edge> const &es, cons
     
     self.view.frame = frame;
     
-    self.view.backgroundColor = [UIColor whiteColor];
     
-    frame = self.view.bounds;
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
-    frame.size.height /= 2.0f;
+    tableView.delegate = self;
+    tableView.dataSource = self;
     
-    UIView *topview = [[UIView alloc] initWithFrame:frame];
+    [self.view addSubview:tableView];
     
-    topview.backgroundColor = [UIColor lightGrayColor];
-    
-    [self.view addSubview:topview];
-    
-    self.topView = topview;
-    
-    frame.origin.y = frame.size.height;
-    
-    UIView *bottomView = [[UIView alloc] initWithFrame:frame];
-    
-    [self.view addSubview:bottomView];
-    
-    self.bottomView = bottomView;
-    
-    bottomView.backgroundColor = [UIColor grayColor];
+    _tableView = tableView;
     
     [self testCase];
 }
 
 - (void)testCase {
     // Stub
+}
+
+- (void)addDisplayView:(UIView *)view {
+    [_displayViews addObject:view];
+    NSLog(@"%@", _tableView);
+    [_tableView reloadData];
+}
+
+#pragma mark - UITableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _displayViews.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_displayViews[indexPath.row] frame].size.height;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    [cell.contentView addSubview:_displayViews[indexPath.row]];
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning

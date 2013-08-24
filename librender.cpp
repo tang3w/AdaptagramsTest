@@ -28,6 +28,18 @@
 using namespace std;
 using namespace cola;
 
+std::string randomColor() {
+    std::stringstream color;
+    
+    color << arc4random() % 200 + 56;
+    color << ",";
+    color << arc4random() % 200 + 56;
+    color << ",";
+    color << arc4random() % 200 + 56;
+    
+    return color.str();
+}
+
 namespace colaext {
     
 Render::Render(std::vector<vpsc::Rectangle*> const &rs,
@@ -86,22 +98,36 @@ std::string Render::svgText() {
     }
     
     for (unsigned i = 0; i < rs.size(); i++) {
-        double x = rs[i]->getMinX() - xmin + 1.5;
-        double y = rs[i]->getMinY() - ymin + 1.5;
+        double x = rs[i]->getMinX() - xmin;
+        double y = rs[i]->getMinY() - ymin;
+        double width = rs[i]->width();
+        double height = rs[i]->height();
+        double textX = x + width / 2.0 - 4;
+        double textY = y + height / 2.0 + 7.5;
         
+        std::stringstream g;
         std::stringstream rect;
+        std::stringstream text;
         
         rect << "<rect";
         rect << " x=\"" << x << "\"";
         rect << " y=\"" << y << "\"";
-        rect << " width=\"" << rs[i]->width() - 3 << "\"";
-        rect << " height=\"" << rs[i]->height() - 3 << "\"";
-        
-        rect << " style=\"fill:red; stroke:yellow; stroke-width:3;\"";
-        
+        rect << " width=\"" << width << "\"";
+        rect << " height=\"" << height << "\"";
+        rect << " style=\"fill:rgb(" << randomColor() << ");\"";
         rect << "/>";
         
-        svgText << rect.str();
+        text << "<text";
+        text << " x=\"" << textX << "\"";
+        text << " y=\"" << textY << "\"";
+        text << " style=\"" << "font-size:12;" << "\"";
+        text << ">";
+        text << i + 1;
+        text << "</text>";
+        
+        g << "<g>" << rect.str() << text.str() << "</g>";
+        
+        svgText << g.str();
     }
     
     svgText << "</svg>";
@@ -145,7 +171,7 @@ void Render::svgDrawEdges(std::stringstream &svgText,
         }
         
         svgText << "<polyline points=\"" << points.str() << "\"";
-        svgText << " style=\"fill:none; stroke:black; stroke-width:1\"";
+        svgText << " style=\"fill:none; stroke:rgb(255,234,179); stroke-width:3;\"";
         svgText << "/>";
     }
 }
@@ -315,7 +341,7 @@ void Render::svgDrawCurvedEdges(std::stringstream &svgText,
         C << e.x1 << "," << e.y1 << " " << e.x2 << "," << e.y2 << " " << e.x3 << "," << e.y3;
         
         svgText << "<path d=\"M" << M.str() << " C" << C.str() << "\"";
-        svgText << " style=\"fill:none; stroke:red; stroke-width:3\"";
+        svgText << " style=\"fill:none; stroke:stroke:rgb(255,234,179); stroke-width:3;\"";
         svgText << "/>";
     }
 }

@@ -41,17 +41,12 @@ using namespace cola;
     
     std::vector<Edge> es;
     
-    [self.topView addSubview:toSVG(rs, es, true)];
+    [self addDisplayView:toSVG(rs, es, true)];
     
     // Remove overlaps
     removeoverlaps(rs);
     
-    SVGKFastImageView *view2 = toSVG(rs, es, true);
-    
-    CGRect frame = view2.frame;
-    frame.origin.y = 300.0f;
-    
-    [self.bottomView addSubview:view2];
+    [self addDisplayView:toSVG(rs, es, true)];
 }
 
 @end
